@@ -2,8 +2,9 @@
 
 namespace routes\base;
 
-use controllers\base\WebController;
 use utils\CliUtils;
+use routes\base\Route;
+use controllers\base\WebController;
 
 class Route
 {

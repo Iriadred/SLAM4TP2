@@ -6,6 +6,7 @@ use routes\Api;
 use routes\Cli;
 use routes\Web;
 use utils\CliUtils;
+use routes\base\Route;
 
 class Router extends Route
 {
