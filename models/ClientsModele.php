@@ -72,6 +72,7 @@ class ClientsModele extends SQL
         $query = "SELECT * FROM client WHERE id = ?";
         $stmt = SQL::getPdo()->prepare($query);
         $stmt->execute([$clientId]);
-        return $stmt->fetch(\PDO::FETCH_CLASS, Client::class);
+        $stmt-> setFetchMode(\PDO::FETCH_CLASS, client::class);
+        return $stmt->fetch();
     }
 }
