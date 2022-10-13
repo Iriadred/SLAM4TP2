@@ -20,18 +20,15 @@ class ClientsModele extends SQL
      * @param int $page
      * @return Client[]
      */
-    public function liste(int $limit = 10/*PHP_INT_MAX*/, int $page = 0 , string $key = ""): array
+    public function liste(int $limit = 10/*PHP_INT_MAX*/, int $page = 0): array
     {
-        if($key != ""){
-            return $this->recherche($key,$limit);
-        }
-        else{
+
         $query = "SELECT * FROM client LIMIT :limit,:offset;";
 
         $stmt = SQL::getPdo()->prepare($query);
         $stmt->execute([":limit" => $limit * $page, ":offset" => $limit]);
 
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, Client::class);}
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, Client::class);
     }
 
     /**
